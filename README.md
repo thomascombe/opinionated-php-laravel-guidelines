@@ -139,6 +139,21 @@ class MyClass
     }
 }
 ```
+
+## If statement
+You need to always use curly brackets for if statement even if single instruction.  
+
+```php
+<?php
+// Good 
+if ($someCondition === true) {
+    $this->work();
+}
+
+// Very bad
+if ($someCondition === true) $this->work();
+```
+
 ## Laravel Guideline
 // WIP
 
