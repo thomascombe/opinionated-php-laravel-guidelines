@@ -87,6 +87,41 @@ public function getSummaryDescription(): string
 }
 ```
 
+## Variables naming
+Variables name need to explain you code, code is auto-documented with naming.
+You have to avoid generic names.  
+
+```php
+// This code is just an illustration for variables naming.  
+// do not judge the usefulness and effectiveness of this code 🙏
+// Good
+public function getPrettyUsersList(array $users): string 
+{
+    $prettyUsersList = '';
+    
+    foreach ($users as $user) {
+        $prettyUsersList .= ', ' . $user->getFullName();
+    }
+    
+    return $prettyUsersList;
+}
+
+// Bad
+// getUsersList name is not description the method
+public function getUsersList(array $users): string 
+{
+    // Variable name is not understandable
+    $list = '';
+    
+    // $item is too generic
+    foreach ($users as $item) {
+        $list .= ', ' . $item->getFullName();
+    }
+    
+    return $list;
+}
+```
+
 ## Type hinted
 
 Use type hinted for parameters and return.
