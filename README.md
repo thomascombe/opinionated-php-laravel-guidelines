@@ -11,8 +11,6 @@ Use [PSR-1](https://www.php-fig.org/psr/psr-1/) and [PSR-2](https://www.php-fig.
 ## Class organization
 
 ```php
-<?php
-
 namespace My\Class\Namespace;
 
 use ClassInterface;
@@ -163,29 +161,37 @@ In function, you have to put error check (return, exception) first, this last in
 
 ```php
 // Good 
-if (!$someCondition) {
-    return null;
+private function good(): ?int 
+{
+    if (!$someCondition) {
+        return null;
+    }
+    
+    $this->work();
+    
+    if (!$anotherCondition) {
+        return null;
+    }
+    
+    
+    return $this->secondWork();
 }
-
-$this->work();
-
-if (!$anotherCondition) {
-    return null;
-}
-
-return $this->secondWork();
 
 // Bad
-if ($someCondition) {
-    $this->work();
-
-    if ($anotherCondition) {
-        return $this->secondWork();
+private function bad(): ?int 
+{
+    if ($someCondition) {
+        $this->work();
+    
+        if ($anotherCondition) {
+            return $this->secondWork();
+        }
     }
+    
+    return null;
 }
-
-return null;
 ```
+This rule keep code readable and remove a lot of nested methods.
 
 ## Laravel Guideline
 
