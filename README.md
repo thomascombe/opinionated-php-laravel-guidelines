@@ -36,7 +36,6 @@ class MyClass extends ParentClass implements ClassInterface, Serializable
     private function privateMethods() {}
 }
 ```
-// TODO: speak about static properties/methods
 
 ## Type hinted  
 Use type hinted for parameters and return.
@@ -93,31 +92,6 @@ PHPDoc is for the documentation, so, use type hinted instead of `@param` or `@re
 // Good
 class MyClass 
 {
-    use FirstTrait;
-    use SecondTrait;
-    use SecondTrait {
-        SecondTrait::traitMethod as duplicateTraitMethod;
-    }
-}
-
-// Bad
-class MyClass 
-{
-    use FirstTrait, SecondTrait {
-        SecondTrait::traitMethod as duplicateTraitMethod;
-    }
-}
-```
-
-## Traits use order
-If you use PHP traits (and you have to use it!), each apply trait need to have his own line.  
-It will be more readable, and when you add new apply trait the commit diff is more readable.  
-
-```php
-<?php
-// Good
-class MyClass 
-{
     /**
      * Method description if method name can't be understandable
      */
@@ -137,6 +111,31 @@ class MyClass
     public function myMethod(string $param): void 
     {
         //
+    }
+}
+```
+
+## Traits use order
+If you use PHP traits (and you have to use it!), each apply trait need to have his own line.  
+It will be more readable, and when you add new apply trait the commit diff is more readable.  
+
+```php
+<?php
+// Good
+class MyClass 
+{
+    use FirstTrait;
+    use SecondTrait;
+    use SecondTrait {
+        SecondTrait::traitMethod as duplicateTraitMethod;
+    }
+}
+
+// Bad
+class MyClass 
+{
+    use FirstTrait, SecondTrait {
+        SecondTrait::traitMethod as duplicateTraitMethod;
     }
 }
 ```
