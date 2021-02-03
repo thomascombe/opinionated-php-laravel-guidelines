@@ -36,6 +36,7 @@ class MyClass extends ParentClass implements ClassInterface, Serializable
     private function privateMethods() {}
 }
 ```
+// TODO: speak about static properties/methods
 
 ## Type hinted  
 Use type hinted for parameters and return.
