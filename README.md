@@ -2,6 +2,9 @@
 
 > This project is an opinionated guideline for PHP and Laravel.
 
+You can find PHP guideline and more specific Laravel guideline.  
+This guideline contains **my** PHP best practices and also **my** [Laravel](https://laravel.com/) best practices.  
+
 **PHP Version >= 7.4**
 
 Table of Contents
