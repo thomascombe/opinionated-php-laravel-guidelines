@@ -37,6 +37,56 @@ class MyClass extends ParentClass implements ClassInterface, Serializable
 }
 ```
 
+## Methods/classes length
+Classes and methods should be as small as possible.  
+Methods must have only one responsibility, 20 lines is probably a good soft limit.  
+
+Example for responsibility:
+```php
+// User.php class
+
+// Good
+public function getSummaryDescription(): string 
+{
+    return sprintf(
+        '%s, %d years old, %s',
+        $this->getFullName(),
+        $this->getAge(),
+        $this->getFullAddress()
+    );
+}
+
+public function getFullName(): string 
+{
+    //return ...;
+}
+
+public function getAge(): int 
+{
+    //return ...;
+}
+
+public function getFullAddress(): string 
+{
+    //return ...;
+}
+
+// Bad
+public function getSummaryDescription(): string 
+{
+    return sprintf(
+        '%s %s %s, %d years old, %s %s %s',
+        $this->civility,
+        ucfirst($this->firstName),
+        strtoupper($this->lastName),
+        intval($this->age),
+        $this->address,
+        $this->postalCode,
+        $this->city,
+    );
+}
+```
+
 ## Type hinted
 
 Use type hinted for parameters and return.
