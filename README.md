@@ -262,6 +262,36 @@ if ($someCondition === true) {
 if ($someCondition === true) {$this->work();}
 ```
 
+### String concatenation
+For concat string prefer In-string variables.  
+Second solution is `sprintf`, it's more readable and maintainable than concat string.  
+
+```php
+// Very good 
+$finalString = "My name is {$name}!";
+
+// Good 
+$finalString = sprintf(
+    'My name is %s!',
+    $name
+);
+
+// Bad
+$finalString = 'My name is ' .$name . '!';
+
+// If you want to update spring
+$finalString = "My name is {$name}! I'm {$age} years old";
+
+// Good 
+$finalString = sprintf(
+    'My name is %s!I\'m %d years old',
+    $name,
+    $age
+);
+// Bad
+$finalString = 'My name is ' .$name . '! I\'m ' . $age . ' years old';
+```
+
 ### Function path, happy end
 
 In function, you have to put error check (return, exception) first, this last instruction must be a happy end!
