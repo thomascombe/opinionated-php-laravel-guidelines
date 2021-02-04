@@ -11,6 +11,7 @@ Table of Contents
 =================
 
 * [Opinionated PHP and Laravel guideline](#opinionated-php-and-laravel-guideline)
+* [Table of Contents](#table-of-contents)
     * [PHP Guideline](#php-guideline)
         * [Class organization](#class-organization)
         * [Methods/classes length](#methodsclasses-length)
@@ -20,6 +21,7 @@ Table of Contents
         * [PHPDoc](#phpdoc)
         * [Traits use order](#traits-use-order)
         * [If statement](#if-statement)
+        * [String concatenation](#string-concatenation)
         * [Function path, happy end](#function-path-happy-end)
     * [Laravel Guideline](#laravel-guideline)
     * [License](#license)
