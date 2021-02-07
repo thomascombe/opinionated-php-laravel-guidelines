@@ -69,7 +69,7 @@ Example for single responsibility:
 ```php
 // User.php class
 
-// Good
+// Good ✅
 public function getSummaryDescription(): string 
 {
     return sprintf(
@@ -95,7 +95,7 @@ public function getFullAddress(): string
     //return ...;
 }
 
-// Bad
+// Bad ❌
 public function getSummaryDescription(): string 
 {
     return sprintf(
@@ -118,7 +118,7 @@ You HAVE TO avoid generic names.
 ```php
 // This code is just an illustration for variables naming.  
 // do not judge the usefulness and effectiveness of this code 🙏
-// Good
+// Good ✅
 public function getPrettyUsersList(array $users): string 
 {
     $prettyUsersList = '';
@@ -130,7 +130,7 @@ public function getPrettyUsersList(array $users): string
     return $prettyUsersList;
 }
 
-// Bad
+// Bad ❌
 // getUsersList name is not description the method
 public function getUsersList(array $users): string 
 {
@@ -151,7 +151,7 @@ public function getUsersList(array $users): string
 You SHOULD use type hinting for parameters and return.
 
 ```php
-// Good
+// Good ✅
 class MyClass 
 {
     public function myMethod(string $param): void 
@@ -160,7 +160,7 @@ class MyClass
     }
 }
 
-// Bad
+// Bad ❌
 class MyClass 
 {
     public function myMethod($param) 
@@ -175,7 +175,7 @@ class MyClass
 Use `void` as return type whenever possible to avoid mistakes.
 
 ```php
-// Good
+// Good ✅
 class MyClass 
 {
     public function myMethod(): void 
@@ -184,7 +184,7 @@ class MyClass
     }
 }
 
-// Bad
+// Bad ❌
 class MyClass 
 {
     public function myMethod() 
@@ -199,7 +199,7 @@ class MyClass
 PhpDoc stands for documentation purposes. Consider to use type hinting insteadof `@param` or `@return`
 
 ```php
-// Good
+// Good ✅
 class MyClass 
 {
     /**
@@ -211,7 +211,7 @@ class MyClass
     }
 }
 
-// Bad
+// Bad ❌
 class MyClass 
 {
     /** 
@@ -230,7 +230,7 @@ class MyClass
 If you use PHP traits (and you have to use it!), for better readability and more understandable diffs, each trait SHOULD be on its own line.
 
 ```php
-// Good
+// Good ✅
 class MyClass 
 {
     use FirstTrait;
@@ -240,7 +240,7 @@ class MyClass
     }
 }
 
-// Bad
+// Bad ❌
 class MyClass 
 {
     use FirstTrait, SecondTrait {
@@ -254,12 +254,12 @@ class MyClass
 You MUST use curly braces for if statements even if there is only one line of code inside.  
 
 ```php
-// Good 
+// Good ✅
 if ($someCondition === true) {
     $this->work();
 }
 
-// Very bad
+// Very bad ❌
 if ($someCondition === true) {$this->work();}
 ```
 
@@ -269,28 +269,28 @@ For concatenate strings prefer In-string variables.
 You can also use `sprintf()` for more complex use cases.
 
 ```php
-// Very good 
+// Very good ✅
 $finalString = "My name is {$name}!";
 
-// Good 
+// Good ✅
 $finalString = sprintf(
     'My name is %s!',
     $name
 );
 
-// Bad
+// Bad ❌
 $finalString = 'My name is ' .$name . '!';
 
 // If you want to update spring
 $finalString = "My name is {$name}! I'm {$age} years old";
 
-// Good 
+// Good ✅
 $finalString = sprintf(
     'My name is %s!I\'m %d years old',
     $name,
     $age
 );
-// Bad
+// Bad ❌
 $finalString = 'My name is ' .$name . '! I\'m ' . $age . ' years old';
 ```
 
@@ -299,7 +299,7 @@ $finalString = 'My name is ' .$name . '! I\'m ' . $age . ' years old';
 In function, you SHOULD put error check (return, exception) first, this last instruction must be a happy end!
 
 ```php
-// Good 
+// Good ✅
 private function good(): ?int 
 {
     if (!$someCondition) {
@@ -316,7 +316,7 @@ private function good(): ?int
     return $this->secondWork();
 }
 
-// Bad
+// Bad ❌
 private function bad(): ?int 
 {
     if ($someCondition) {
