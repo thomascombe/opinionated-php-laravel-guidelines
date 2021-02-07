@@ -62,10 +62,10 @@ class MyClass extends ParentClass implements ClassInterface, Serializable
 ```
 
 ### Methods/classes length
-Classes and methods should be as small as possible.  
-Methods must have only one responsibility, 20 lines is probably a good soft limit.  
+Classes and methods SHOULD be as small as possible.  
+Methods MUST have only one responsibility, 20 lines is probably a good soft limit.  
 
-Example for responsibility:
+Example for single responsibility:
 ```php
 // User.php class
 
@@ -112,8 +112,8 @@ public function getSummaryDescription(): string
 ```
 
 ### Variables naming
-Variables name need to explain you code, code is auto-documented with naming.
-You have to avoid generic names.  
+Variables name NEED to explain your code, code is auto-documented with naming.
+You HAVE TO avoid generic names.  
 
 ```php
 // This code is just an illustration for variables naming.  
@@ -146,9 +146,9 @@ public function getUsersList(array $users): string
 }
 ```
 
-### Type hinted
+### Type hinting
 
-Use type hinted for parameters and return.
+You SHOULD use type hinting for parameters and return.
 
 ```php
 // Good
@@ -172,7 +172,7 @@ class MyClass
 
 ### Void return
 
-Use `void` return type as soon is needed to remove mistake.
+Use `void` as return type whenever possible to avoid mistakes.
 
 ```php
 // Good
@@ -196,7 +196,7 @@ class MyClass
 
 ### PHPDoc
 
-PHPDoc is for the documentation, so, use type hinted instead of `@param` or `@return`
+PhpDoc stands for documentation purposes. Consider to use type hinting insteadof `@param` or `@return`
 
 ```php
 // Good
@@ -225,10 +225,9 @@ class MyClass
 }
 ```
 
-### Traits use order
+### Traits use
 
-If you use PHP traits (and you have to use it!), each apply trait need to have his own line.  
-It will be more readable, and when you add new apply trait the commit diff is more readable.
+If you use PHP traits (and you have to use it!), for better readability and more understandable diffs, each trait SHOULD be on its own line.
 
 ```php
 // Good
@@ -252,7 +251,7 @@ class MyClass
 
 ### If statement
 
-You need to always use curly brackets for if statement even if single instruction.
+You MUST use curly braces for if statements even if there is only one line of code inside.  
 
 ```php
 // Good 
@@ -265,8 +264,9 @@ if ($someCondition === true) {$this->work();}
 ```
 
 ### String concatenation
-For concat string prefer In-string variables.  
-Second solution is `sprintf`, it's more readable and maintainable than concat string.  
+
+For concatenate strings prefer In-string variables.  
+You can also use `sprintf()` for more complex use cases.
 
 ```php
 // Very good 
@@ -296,7 +296,7 @@ $finalString = 'My name is ' .$name . '! I\'m ' . $age . ' years old';
 
 ### Function path, happy end
 
-In function, you have to put error check (return, exception) first, this last instruction must be a happy end!
+In function, you SHOULD put error check (return, exception) first, this last instruction must be a happy end!
 
 ```php
 // Good 
