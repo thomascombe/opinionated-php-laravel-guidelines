@@ -1,18 +1,18 @@
-# Opinionated PHP and Laravel guideline
+# Opinionated PHP and Laravel guidelines
 
-> This project is an opinionated guideline for PHP and Laravel.
+> This project is an opinionated guidelines for PHP and Laravel.
 
-You can find PHP guideline and more specific Laravel guideline.  
-This guideline contains **my** PHP best practices and also **my** [Laravel](https://laravel.com/) best practices.  
+You can find PHP guideline and more specific Laravel guidelines.  
+These guidelines contain **my** PHP best practices and also **my** [Laravel](https://laravel.com/) best practices.  
 
 **PHP Version >= 7.4**
 
 Table of Contents
 =================
 
-* [Opinionated PHP and Laravel guideline](#opinionated-php-and-laravel-guideline)
+* [Opinionated PHP and Laravel guidelines](#opinionated-php-and-laravel-guidelines)
 * [Table of Contents](#table-of-contents)
-    * [PHP Guideline](#php-guideline)
+    * [PHP Guidelines](#php-guidelines)
         * [Class organization](#class-organization)
         * [Methods/classes length](#methodsclasses-length)
         * [Variables naming](#variables-naming)
@@ -23,12 +23,12 @@ Table of Contents
         * [If statement](#if-statement)
         * [String concatenation](#string-concatenation)
         * [Function path, happy end](#function-path-happy-end)
-    * [Laravel Guideline](#laravel-guideline)
+    * [Laravel Guidelines](#laravel-guidelines)
     * [License](#license)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
-## PHP Guideline
+## PHP Guidelines
 
 Use [PSR-1](https://www.php-fig.org/psr/psr-1/) and [PSR-2](https://www.php-fig.org/psr/psr-2/) for code style.
 
@@ -332,7 +332,7 @@ private function bad(): ?int
 ```
 This rule keep code readable and remove a lot of nested methods.
 
-## Laravel Guideline
+## Laravel Guidelines
 
 // WIP
 
