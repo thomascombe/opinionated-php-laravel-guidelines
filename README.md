@@ -23,6 +23,7 @@ Table of Contents
         * [If statement](#if-statement)
         * [String concatenation](#string-concatenation)
         * [Function path, happy end](#function-path-happy-end)
+        * [Switch](#switch)
     * [Laravel Guidelines](#laravel-guidelines)
     * [License](#license)
 
@@ -331,6 +332,63 @@ private function bad(): ?int
 }
 ```
 This rule keep code readable and remove a lot of nested methods.
+
+### Switch
+You SHOULD use lookup array as some as possible insteadof `switch`.  
+If using PHP8, you SHOULD prefer `match` 
+
+```php
+// Good ✅ (lookup array)
+function getColorFor(string $role): string
+{
+    $colorsByRoles = [
+        'admin' => 'red',
+        'customer' => 'green',
+        'guest' => 'grey',
+    ];
+    return $colorsByRoles[$role] ?? 'yellow';
+}
+// Good ✅ (match PHP8)
+function getColorFor(string $role): string
+{
+    return match ($role) {
+        'admin' => 'red',
+        'customer' => 'green',
+        'guest' => 'grey',
+        default => 'yellow',
+    };
+}
+
+// Bad ❌
+function getColorFor(string $role): string
+{
+    switch ($role) {
+        case 'admin':
+            return 'red';
+        case 'customer':
+            return 'green';
+        case 'guest':
+            return 'grey';
+        default:
+            return 'yellow';
+    }
+}
+
+// Very bad ❌
+function getColorFor(string $role): string
+{
+    if ($role === 'admin') {
+        return 'red';
+    }
+    if ($role === 'customer') {
+        return 'green';
+    }
+    if ($role === 'guest') {
+        return 'grey';
+    }
+    return 'yellow';
+}
+```
 
 ## Laravel Guidelines
 
